@@ -37,7 +37,10 @@ func areaOfRectangle(length: Double, width: Double) -> Double? {
 
 // Invoke the function... to find the area of a rectangle that is 10 units long and 5 units wide
 // Test case #1: length: 10, width: 5, result: 50
-let result = areaOfRectangle(length: 10, width: 5)
+if let result = areaOfRectangle(length: 10, width: 9) {
+    // Report the results
+    print("The area of that rectangle was \(result) square units.")
+}
 
 // Test case #2: length: 10.5, width: 10, result: 105
 areaOfRectangle(length: 10.5, width: 10)
@@ -48,8 +51,6 @@ areaOfRectangle(length: -5, width: 25)
 // Test case #4: length: 5, width: -25, result: nil
 areaOfRectangle(length: 5, width: -25)
 
-// Report the results
-print("The area of that rectangle was \(result) square units.")
 
 
 /*:
