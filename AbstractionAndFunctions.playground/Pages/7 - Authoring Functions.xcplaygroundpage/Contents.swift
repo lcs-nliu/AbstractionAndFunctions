@@ -44,8 +44,6 @@ func volumeCylinder(radius: Double, height: Double) -> Double? {
     return Double.pi * height * pow(radius, 2.0)
 }
 
-volumeCylinder(radius: 5.0, height: 6.0)
-
 
 /// Find the surface area of a sphere
 /// - Parameter radius: radius of the sphere
@@ -53,14 +51,13 @@ volumeCylinder(radius: 5.0, height: 6.0)
 func surfaceAreaSphere(radius: Double) -> Double? {
     // Ensure that we have reasonable values
        guard radius > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
     return 4 * Double.pi * pow(radius, 2.0)
 }
 
-surfaceAreaSphere(radius:5.0)
 
 /// Find the volume of a sphere
 /// - Parameter radius: the radius of the sphere
@@ -68,14 +65,13 @@ surfaceAreaSphere(radius:5.0)
 func volumeSphere(radius: Double) -> Double? {
     // Ensure that we have reasonable values
        guard radius > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
     return 4/3 * Double.pi * pow(radius, 3.0)
 }
 
-volumeSphere(radius:5.0)
 
 
 /// Find the area of a trapezoid
@@ -85,17 +81,15 @@ volumeSphere(radius:5.0)
 ///   - height: the height of the trapezoid
 /// - Returns: the area of the trapezoid
 
-func areaTrapezoid(a: Double, b: Double, height: Double) -> Double? {
+func areaTrapezoid(shorterBase a: Double, longerBase b: Double, height: Double) -> Double? {
     // Ensure that we have reasonable values
        guard a > 0, b > 0, height > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
     return 1/2 * (a+b) * height
 }
-
-areaTrapezoid(a: 5.0, b: 10.0, height: 8.0)
 
 
 /// Find the perimeter of a triangle
@@ -104,16 +98,14 @@ areaTrapezoid(a: 5.0, b: 10.0, height: 8.0)
 ///   - b: second side length
 ///   - c: third side length
 /// - Returns: the perimeter of a triangle
-func perimeterTriangle(a: Double, b:Double, c: Double) -> Double? { // Ensure that we have reasonable values
+func perimeterTriangle(sideLengthA a: Double, sideLengthB b:Double,sideLengthC c: Double) -> Double? { // Ensure that we have reasonable values
        guard a > 0, b > 0, c > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
     return a+b+c
 }
-
-perimeterTriangle(a: 3, b:4, c: 5)
 
 
 /// Find the perimeter of a rectangle
@@ -124,7 +116,7 @@ perimeterTriangle(a: 3, b:4, c: 5)
 func perimeterRectangle(length l: Double, width w: Double) -> Double? {
     // Ensure that we have reasonable values
        guard l > 0, w > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
@@ -140,14 +132,12 @@ func perimeterRectangle(length l: Double, width w: Double) -> Double? {
 func surfaceAreaPyramid(base b: Double, slantHeight s: Double) -> Double? {
     // Ensure that we have reasonable values
        guard b > 0, s > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
 return pow (b,2) + 2*b*s
 }
-
-surfaceAreaPyramid (base: 5, slantHeight: 10)
 
 
 /// Find the area of parallelogram
@@ -157,16 +147,78 @@ surfaceAreaPyramid (base: 5, slantHeight: 10)
 func areaParallelogram(baseLength b: Double, height h: Double) -> Double? {
     // Ensure that we have reasonable values
        guard b > 0, h > 0 else {
-           // we have one or more bad inputs, so return a nill value
+           // we have one or more bad inputs, so return a nil value
            return nil
        }
     // we have reasonable values so return the area
     return b*h
 }
 
+// TEST CASES - all results are rounded to one decimal place
 
+// Volume Sphere
+// Test case #1: radius: 5, return: 523.60
+volumeSphere(radius: 5.0)
+// Test case #2: radius: -10, return: nil
+volumeSphere(radius: -10)
+// Test case #3: radius: 19.25, return: 29880.01
+volumeSphere(radius: 19.25)
 
+// Volume Cylinder
+// Test case #1: radius: 3, height: 2, return: 56.55
+volumeCylinder(radius: 3.0, height: 2.0)
+// Test case #2: radius: -5, height: 6, return: nil
+volumeCylinder(radius: -5.0, height: 6.0)
+// Test case #3: radius: 1.5 , height: 7, return: 49.48
+volumeCylinder(radius: 1.5, height: 7.0 )
 
+// Area trapezoid
+// Test case #1: shorterBase: 3, longerBase: 5, height: 2, return: 8.00
+areaTrapezoid(shorterBase: 3.0, longerBase: 5.0, height: 2)
+// Test case #2: shorterBase: -3, longerBase: 5, height: -2, return: nil
+areaTrapezoid(shorterBase: -3, longerBase: 5, height: -2)
+// Test case #3: shorterBase: 1.37, longerBase: 2.8, height: 5, return: 10.43
+areaTrapezoid(shorterBase: 1.37, longerBase: 2.8, height: 5)
+
+// Surface Area Sphere
+// Test case #1: radius: 5, result: 314.16
+surfaceAreaSphere(radius:5)
+// Test case #2: radius: -100, result: nil
+surfaceAreaSphere(radius: -100)
+// Test case #3: radius: 1.02, result: 13.07
+surfaceAreaSphere(radius: 1.02)
+
+// Perimeter Rectangle
+// Test case #1: width: 5, length: 10, result: 31.60
+perimeterRectangle(length: 10.6, width: 5.2)
+// Test case #2: width: -300, length: 1, result: nil
+perimeterRectangle(length: 1, width: -300)
+// Test case #3: width: 50, length: 20, result: 140.00
+perimeterRectangle(length: 20, width: 50)
+
+// Perimeter Triangle
+// Test case #1: sideLengthA: 5, sideLengthB: 5, sideLengthC: 5, result: 15.00
+perimeterTriangle(sideLengthA: 5, sideLengthB: 5, sideLengthC: 5)
+// Test case #2: sideLengthA: -17, sideLengthB: 3, sideLengthC: 3, result: nil
+perimeterTriangle(sideLengthA: -17, sideLengthB: 3, sideLengthC: 3)
+// Test case #3: sideLengthA: 6, sideLengthB: 8, sideLengthC: 10, result: 24.00
+perimeterTriangle(sideLengthA: 6, sideLengthB: 8, sideLengthC: 10)
+
+// Surface Area Pyramid
+// Test case #1: base: 5, slantHeight: 10, result: 125.00
+surfaceAreaPyramid(base: 5, slantHeight: 10)
+// Test case #1: base: 3.41, slantHeight: 8.72, result: 71.10
+surfaceAreaPyramid(base: 3.41, slantHeight: 8.72)
+// Test case #1: base: 0, slantHeight: 10, result: nil
+surfaceAreaPyramid(base: 0, slantHeight: 10)
+
+// Area Parallelogram
+// Test case #1: baseLength: 5, height: 10, result: 50.00
+areaParallelogram(baseLength: 5, height: 10)
+// Test case #2: baseLength: 9.81, height: 61.33, result: 601.65
+areaParallelogram(baseLength: 9.81, height: 61.33)
+// Test case #3: baseLength: -19, height: 36, result: nil
+areaParallelogram(baseLength: -19, height: 36)
 /*:
  [Previous: Writing Documentation](@previous) | Page 7
  */
